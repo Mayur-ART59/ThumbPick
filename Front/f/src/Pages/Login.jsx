@@ -21,7 +21,7 @@ function Login() {
       const handleSubmit = (e) => {
         e.preventDefault();
         
-        axios.post('http://localhost:5000/Signin', form)
+        axios.post('https://thumbpick.onrender.com/Signin', form)
           .then((res) => {   
             const {username,userId,profileImage,Admin}=res.data  
            setToken(res.data.token);

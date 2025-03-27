@@ -16,7 +16,7 @@ function Thumbnailmodal({ show, onClose, selectedThumbnail, startIndex, refreshL
     const userId = localStorage.getItem("userId");
 
     try {
-      const res = await axios.get(`http://localhost:5000/likes/${thumbnailId}?userId=${userId}`);
+      const res = await axios.get(`https://thumbpick.onrender.com/likes/${thumbnailId}?userId=${userId}`);
 
       setLikeCounts((prev) => ({
         ...prev,
@@ -36,7 +36,7 @@ function Thumbnailmodal({ show, onClose, selectedThumbnail, startIndex, refreshL
   useEffect(() => {
     const userId = localStorage.getItem("userId");
 
-    axios.get("http://localhost:5000/GetThumbnails")
+    axios.get("https://thumbpick.onrender.com/GetThumbnails")
       .then((res) => {
         setData(res.data);
         const storedLikes = JSON.parse(localStorage.getItem("likedThumbnails")) || {};
@@ -72,7 +72,7 @@ function Thumbnailmodal({ show, onClose, selectedThumbnail, startIndex, refreshL
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/like", { thumbnailId, userId, imageIndex });
+      const res = await axios.post("https://thumbpick.onrender.com/like", { thumbnailId, userId, imageIndex });
 
       if (res.data.warning) {
         toast.warning(res.data.warning);

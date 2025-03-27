@@ -30,4 +30,8 @@ app.use("/", uploadRoutes);
 app.use('/',like)
 app.use('/',thumbnail)
 
+
+app.get('/ping', (req, res) => {
+  res.status(200).json({ message: "Server is running" });
+});
 app.listen(PORT, () => { console.log(`Server Started At Port ${PORT}`) });

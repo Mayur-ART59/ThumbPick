@@ -13,7 +13,7 @@ function Cards() {
     useEffect(() => {
         const userId = localStorage.getItem("userId");
 
-        axios.get(`http://localhost:5000/GetThumbnails/${userId}`)
+        axios.get(`https://thumbpick.onrender.com/GetThumbnails/${userId}`)
             .then((res) => {
                 setData(res.data);
             })
@@ -30,7 +30,7 @@ function Cards() {
     const handleDelete = async (thumbnailId) => {
         if (window.confirm("Are you sure you want to delete this thumbnail?")) {
             try {
-                await axios.delete(`http://localhost:5000/thumbnails/${thumbnailId}`);
+                await axios.delete(`https://thumbpick.onrender.com/thumbnails/${thumbnailId}`);
                 toast.success("Thumbnail deleted successfully");
                 setData(prev => prev.filter(item => item._id !== thumbnailId));
             } catch (error) {

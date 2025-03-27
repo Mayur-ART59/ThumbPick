@@ -13,7 +13,7 @@ function Allthumbs({ limit = null }) {
     const [likeCounts, setLikeCounts] = useState({});
 
     const refreshLikeCounts = () => {
-        axios.get("http://localhost:5000/likes/totalPerThumbnail").then((res) => {
+        axios.get("https://thumbpick.onrender.com/likes/totalPerThumbnail").then((res) => {
             const counts = {};
             res.data.forEach((item) => { counts[item._id] = item.totalLikes; });
             setLikeCounts(counts);
@@ -24,7 +24,7 @@ function Allthumbs({ limit = null }) {
     };
 
     useEffect(() => {
-        axios.get("http://localhost:5000/GetThumbnails").then((res) => {
+        axios.get("https://thumbpick.onrender.com/GetThumbnails").then((res) => {
             setData(res.data);
         }).catch((err) => {
             console.error(err);

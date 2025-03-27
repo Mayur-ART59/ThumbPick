@@ -18,7 +18,7 @@ function Signup() {
     const handleSubmit=(e)=>{
       e.preventDefault();
       
-      axios.post('http://localhost:5000/Signup',form)
+      axios.post('https://thumbpick.onrender.com/Signup',form)
       .then((res)=>{
         res.data
         toast.success('SignUp Successfull')

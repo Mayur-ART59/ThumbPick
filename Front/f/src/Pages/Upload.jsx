@@ -67,7 +67,7 @@ function Upload() {
     formData.append("title", title);
   
     try {
-      const res = await axios.post("http://localhost:5000/upload/thumbnails", formData);
+      const res = await axios.post("https://thumbpick.onrender.com/upload/thumbnails", formData);
       toast.success("Upload successful!");
       setImages([]);
       setPreview([]);

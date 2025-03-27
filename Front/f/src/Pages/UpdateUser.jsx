@@ -28,7 +28,7 @@ function UpdateUser() {
 
 
         axios
-            .get(`http://localhost:5000/GetUsers/${userId}`)
+            .get(`https://thumbpick.onrender.com/GetUsers/${userId}`)
             .then((res) => {
                 setUser(res.data);
 
@@ -64,7 +64,7 @@ function UpdateUser() {
             localStorage.removeItem("profileImage");
 
             // Backend update
-            await axios.patch(`http://localhost:5000/UpdateUser/${userId}`, {
+            await axios.patch(`https://thumbpick.onrender.com/UpdateUser/${userId}`, {
                 profileImage: "",
             });
 
@@ -86,7 +86,7 @@ function UpdateUser() {
             if (imageFile) {
 
                 const uploadResponse = await axios.post(
-                    "http://localhost:5000/upload/profile",
+                    "https://thumbpick.onrender.com/upload/profile",
                     formData,
                     { headers: { "Content-Type": "multipart/form-data" } }
                 );
@@ -102,7 +102,7 @@ function UpdateUser() {
                 localStorage.setItem("profileImage", imageUrl);
 
 
-                await axios.patch(`http://localhost:5000/UpdateUser/${userId}`, {
+                await axios.patch(`https://thumbpick.onrender.com/UpdateUser/${userId}`, {
                     ...user,
                     profileImage: imageUrl,
                 });
