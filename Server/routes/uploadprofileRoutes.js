@@ -1,5 +1,5 @@
 const express = require("express");
-const { upload } = require("../config/cloudinaryConfig"); 
+const { upload } = require("./cloudinaryconfig"); 
 const router = express.Router();
 const User = require('../Models/UserSchema');
 
